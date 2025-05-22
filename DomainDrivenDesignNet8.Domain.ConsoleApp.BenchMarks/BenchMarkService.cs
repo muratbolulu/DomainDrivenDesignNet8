@@ -6,7 +6,7 @@ namespace DomainDrivenDesignNet8.ConsoleApp.BenchMarks;
 public class BenchMarkService
 {
 
-    [Benchmark(Baseline =true)]
+    //[Benchmark(Baseline =true)]
     public void Equals()
     {
         int id = 1;
@@ -96,5 +96,24 @@ public class Test2  : IEquatable<Test2>
         }
 
         return test2.Id == Id;
+    }
+}
+
+
+//Domain Events 
+
+public class Order
+{
+    public int Id { get; set; }
+    public string ProductName { get; set; }
+
+    void CreateOrder()
+    {
+        Id = Id; 
+        ProductName = ProductName;
+
+        // Raise domain event
+        //var orderCreatedEvent = new OrderCreatedEvent(this);
+        //DomainEvents.Raise(orderCreatedEvent);
     }
 }
