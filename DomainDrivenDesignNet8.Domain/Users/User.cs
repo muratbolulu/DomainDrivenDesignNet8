@@ -5,7 +5,9 @@ namespace DomainDrivenDesignNet8.Domain.Users;
 
 public sealed class User : Entity
 {
-    public User(Guid id, Name name, Name surname, Email email, string password, Address address):base(id)
+    //public yerine private a dönüştürür ve User oluşturma işini contractor'dan alıp static bir metoda veririz.
+    //factory pattern (proje ihtiyacına göre)
+    private User(Guid id, Name name, Name surname, Email email, string password, Address address):base(id)
     {
         Name = name;
         Surname = surname;
@@ -19,6 +21,17 @@ public sealed class User : Entity
     public Email Email { get; private set; }
     public string Password { get; private set; }
     public Address Address { get; private set; }
+
+    public static User CreateUser(string name, string surname, string email, string password, 
+                                  string country, string city, string street, string fullAddress, string postalCode)
+    {
+        //public yerine private a dönüştürür ve User oluşturma işini contractor'dan alıp static bir metoda veririz.
+        //factory pattern (proje ihtiyacına göre)
+        User user = new(Guid.NewGuid(), new Name(name), new Name(surname), new Email(email), password,
+                                        new Address(country, city, street, fullAddress, postalCode));
+
+        return user;
+    }
 
     public void ChangeName(Name name)
     {
