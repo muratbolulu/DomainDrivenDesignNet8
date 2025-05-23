@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using DomainDrivenDesignNet8.Domain.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace DomainDrivenDesignNet8.Application;
@@ -10,7 +11,7 @@ public static class DependencyInjection
     {
         services.AddMediatR(cfr =>
         {
-            cfr.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            cfr.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly(), typeof(Entity).Assembly);
         });
 
         return services;

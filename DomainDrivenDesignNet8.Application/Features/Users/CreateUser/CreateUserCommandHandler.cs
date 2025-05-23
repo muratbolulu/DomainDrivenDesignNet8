@@ -26,7 +26,6 @@ internal sealed class CreateUserCommandHandler : IRequestHandler<CreateUserComma
             request.surname,
             request.email,
             request.password,
-            request.phoneNumber,
             request.country,
             request.city,
             request.street,

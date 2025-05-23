@@ -11,6 +11,10 @@ public sealed class Category: Entity
         Name = name;
     }
 
+    private Category(Guid id) : base(id)
+    {
+    }
+
     public Name Name { get; private set; }
     public ICollection<Product> Products { get; private set; }
 

@@ -12,10 +12,14 @@ public sealed class Order : Entity
         Status = status;
     }
 
+    private Order(Guid id) : base(id)
+    {
+    }
+
     public string OrderNumber { get; private set; }
     public DateTime OrderDate { get; private set; }
     public OrderStatusEnum Status { get; private set; }
-    public ICollection<OrderLine> OrderLines { get; private set; }
+    public ICollection<OrderLine> OrderLines { get; private set; } = new List<OrderLine>();
 
     public void CreateOrder(List<CreateOrderDto> createOrderDtos)
     {

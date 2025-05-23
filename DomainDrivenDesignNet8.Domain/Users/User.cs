@@ -16,6 +16,10 @@ public sealed class User : Entity
         Address = address;
     }
 
+    private User(Guid id) : base(id)
+    {
+    }
+
     public Name Name { get; private set; }
     public Name Surname { get; private set; }
     public Email Email { get; private set; }
