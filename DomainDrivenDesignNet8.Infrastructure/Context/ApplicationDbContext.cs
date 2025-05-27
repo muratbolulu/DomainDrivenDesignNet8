@@ -15,7 +15,7 @@ internal sealed class ApplicationDbContext : DbContext, IUnitOfWork
     {
         optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=DomainDrivenDesignProject;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
     }
-
+        
     public DbSet<User> Users { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<Category> Categories { get; set; }

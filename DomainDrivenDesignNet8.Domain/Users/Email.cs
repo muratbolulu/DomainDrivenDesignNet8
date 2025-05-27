@@ -16,7 +16,7 @@ public sealed record Email
             throw new ArgumentException("Email must be at least 3 characters long.");
         }
 
-        if (value.Contains('@'))
+        if (!value.Contains('@'))
         {
             throw new ArgumentException("Invalid email");
         }

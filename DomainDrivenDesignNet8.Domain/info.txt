@@ -2,3 +2,5 @@
 
 Order => Aggregate Root
 
+Domainde yapılan işlemler mediatr (event bazlı iNotification ve iNotificationHandler ile) aracılığıyla Application katmanında ( DI ile assembly üzerinden) yakalanır.
+Application katmanında CQRS kullanılarak işlemler yapılır.

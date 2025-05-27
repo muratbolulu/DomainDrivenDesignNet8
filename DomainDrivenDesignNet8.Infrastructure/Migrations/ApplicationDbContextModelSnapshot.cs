@@ -34,7 +34,7 @@ namespace DomainDrivenDesignNet8.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("DomainDrivenDesignNet8.Domain.Orders.Order", b =>
@@ -55,7 +55,7 @@ namespace DomainDrivenDesignNet8.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("DomainDrivenDesignNet8.Domain.Orders.OrderLine", b =>
@@ -79,7 +79,7 @@ namespace DomainDrivenDesignNet8.Infrastructure.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderLine");
+                    b.ToTable("OrderLine", (string)null);
                 });
 
             modelBuilder.Entity("DomainDrivenDesignNet8.Domain.Products.Product", b =>
@@ -102,7 +102,7 @@ namespace DomainDrivenDesignNet8.Infrastructure.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("DomainDrivenDesignNet8.Domain.Users.User", b =>
@@ -125,7 +125,7 @@ namespace DomainDrivenDesignNet8.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("DomainDrivenDesignNet8.Domain.Orders.OrderLine", b =>
@@ -142,7 +142,7 @@ namespace DomainDrivenDesignNet8.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("DomainDrivenDesignNet8.Domain.Shared.Money", "Price", b1 =>
+                    b.OwnsOne("DomainDrivenDesignNet8.Domain.Orders.OrderLine.Price#DomainDrivenDesignNet8.Domain.Shared.Money", "Price", b1 =>
                         {
                             b1.Property<Guid>("OrderLineId")
                                 .HasColumnType("uniqueidentifier");
@@ -156,7 +156,7 @@ namespace DomainDrivenDesignNet8.Infrastructure.Migrations
 
                             b1.HasKey("OrderLineId");
 
-                            b1.ToTable("OrderLine");
+                            b1.ToTable("OrderLine", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("OrderLineId");
@@ -176,7 +176,7 @@ namespace DomainDrivenDesignNet8.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("DomainDrivenDesignNet8.Domain.Shared.Money", "Price", b1 =>
+                    b.OwnsOne("DomainDrivenDesignNet8.Domain.Products.Product.Price#DomainDrivenDesignNet8.Domain.Shared.Money", "Price", b1 =>
                         {
                             b1.Property<Guid>("ProductId")
                                 .HasColumnType("uniqueidentifier");
@@ -190,7 +190,7 @@ namespace DomainDrivenDesignNet8.Infrastructure.Migrations
 
                             b1.HasKey("ProductId");
 
-                            b1.ToTable("Products");
+                            b1.ToTable("Products", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("ProductId");
@@ -204,7 +204,7 @@ namespace DomainDrivenDesignNet8.Infrastructure.Migrations
 
             modelBuilder.Entity("DomainDrivenDesignNet8.Domain.Users.User", b =>
                 {
-                    b.OwnsOne("DomainDrivenDesignNet8.Domain.Users.Address", "Address", b1 =>
+                    b.OwnsOne("DomainDrivenDesignNet8.Domain.Users.User.Address#DomainDrivenDesignNet8.Domain.Users.Address", "Address", b1 =>
                         {
                             b1.Property<Guid>("UserId")
                                 .HasColumnType("uniqueidentifier");
@@ -231,7 +231,7 @@ namespace DomainDrivenDesignNet8.Infrastructure.Migrations
 
                             b1.HasKey("UserId");
 
-                            b1.ToTable("Users");
+                            b1.ToTable("Users", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("UserId");
