@@ -4,3 +4,22 @@ Order => Aggregate Root
 
 Domainde yapılan işlemler mediatr (event bazlı iNotification ve iNotificationHandler ile) aracılığıyla Application katmanında ( DI ile assembly üzerinden) yakalanır.
 Application katmanında CQRS kullanılarak işlemler yapılır.
+
+factory pattern ile constructor üzerinden instance oluşturması engellenip metod üzerinden, metodun kuralları doğrultusunda instance oluşturması sağlandı.
+
+
+//Bounded Contexts: 
+Domain sınırlarını ve uygulamasını belirler.
+Yapısında büyük projelerde Domain katmanları ayrıştırılmalı. 
+Daha küçük projelerde klasör ya da ayrı katmanlarda tutulabilir.
+
+--Sipariş Yönetimi, Müşteri ilişkileri Yönetimi gibi..
+
+//Sub Domains
+İş alanının bir bölümünü temsil eder. İşlevselliğe odaklanır.
+
+//Context Mapping
+Farklı domainler arasındaki ilişkileri ve etkileşimleri tanımlar.
+Çeşitli boundedContext ler arasındaki etkileşimleri yönetir.
+Hangi modellerin paylaşılacağına ve nasıl etkileşimde bulunulacağına karar verir.
+

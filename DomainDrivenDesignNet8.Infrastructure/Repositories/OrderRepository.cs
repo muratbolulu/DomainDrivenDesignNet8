@@ -30,6 +30,10 @@ internal sealed class OrderRepository : IOrderRepository
 
     public async Task<List<Order>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        return await _context.Orders.AsNoTracking().ToListAsync(cancellationToken);
+        return await _context.Orders
+            .Include(p=>p.OrderLines)
+            .ThenInclude(p=>p.Product)
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
     }
 }

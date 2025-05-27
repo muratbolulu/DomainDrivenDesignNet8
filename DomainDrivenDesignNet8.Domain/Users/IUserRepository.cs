@@ -3,6 +3,7 @@ namespace DomainDrivenDesignNet8.Domain.Users;
 
 public interface IUserRepository
 {
+    //parametreleri dto ile göndereceğim.
     Task<User> CreateAsync(string name, string surname, string email, 
                      string password, string country, string city, 
                      string street, string fullAddress, string postalCode, CancellationToken cancellationToken = default);
